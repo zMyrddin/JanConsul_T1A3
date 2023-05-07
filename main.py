@@ -55,3 +55,25 @@ class Task:
             writer = csv.writer(csvfile)
             for date, earned_points, total_points in self.daily_scores:
                 writer.writerow([date, earned_points, total_points])
+
+    def load_tasks_from_csv(self, filename):
+        try:
+            with open(filename, 'r') as csvfile:
+                reader = csv.reader(csvfile)
+                for row in reader:
+                    date = datetime.datetime.strptime(row[0], "%Y-%m-%d").date()
+                    if date == datetime.datetime.now().date():
+                        name = row[1]
+                        points = int(row[2])
+                        done = row[3] == 'True'
+                        task = Task(name, points)
+                        task.done = done
+                        self.tasks.append(task)
+        except FileNotFoundError:
+            print(f"No '{filename}' file found. A new file will be created when tasks are added.")
+
+    def save_tasks_to_csv(self, filename):
+        with open(filename, 'w', newline='') as csvfile:
+            writer = csv.writer(csvfile)
+            for task in self.tasks:
+                writer.writerow([datetime.date.today(), task.name, task.points, task.done])
