@@ -34,6 +34,7 @@ class DailyTracker:
         if not self.daily_scores:
             print("No scores available yet.")
         else:
+            print("Here is today's score: ")
             date, earned_points, total_points = self.daily_scores[-1]
             print(f"{date}: {earned_points}/{total_points}")
 
@@ -82,17 +83,27 @@ class DailyTracker:
         if not self.tasks:
             print("There are no tasks yet!")
         else:
+            print("Here are your tasks for the day: ")
             for index, task in enumerate(self.tasks):
                 status = "Done" if task.done else "Not done"
                 print(f"{index + 1}. {task.name} ({task.points} points) - {status}")
 
     def display_weekly_scores(self):
+        print("Here are your scores for the week!")        
         today = datetime.date.today()
         start_of_week = today - datetime.timedelta(days=today.weekday() % 7)
 
         weekly_scores = [score for score in self.daily_scores if start_of_week <= score[0] < start_of_week + datetime.timedelta(days=7)]
 
-        for date, earned_points, total_points in weekly_scores:
+        # Filter out duplicate entries for the latest day
+        latest_day = None
+        weekly_scores_filtered = []
+        for score in reversed(weekly_scores):
+            if latest_day is None or latest_day != score[0]:
+                latest_day = score[0]
+                weekly_scores_filtered.append(score)
+
+        for date, earned_points, total_points in reversed(weekly_scores_filtered):
             print(f"{date}: {earned_points}/{total_points}")
 
 tracker = DailyTracker()
@@ -153,3 +164,4 @@ while True:
     else:
         print("Invalid action, please try again.")
 
+        
