@@ -25,7 +25,7 @@ class DailyTracker:
 
     def display_scores(self):
         if not self.daily_scores:
-            print("No scores available yet.")
+            print("No scores available yet. Please create a task and save it.")
         else:
             print("Here is today's score: ")
             date, earned_points, total_points = self.daily_scores[-1]
@@ -42,7 +42,7 @@ class DailyTracker:
                     total_points = int(row[2])
                     self.daily_scores.append((date, earned_points, total_points))
         except FileNotFoundError:
-            print(f"No '{filename}' file found. A new file will be created when the day is saved.")
+            print("It seems this is the first time you have used me! Once you finish adding a few tasks and choose save, a simple log of past activities will be accessible by me to keep track of your progress!")
 
     def save_scores_to_csv(self, filename):
         with open(filename, 'w', newline='') as csvfile:
@@ -64,7 +64,7 @@ class DailyTracker:
                         task.done = done
                         self.tasks.append(task)
         except FileNotFoundError:
-            print(f"No '{filename}' file found. A new file will be created when tasks are added.")
+            pass
 
     def save_tasks_to_csv(self, filename):
         with open(filename, 'w', newline='') as csvfile:
@@ -104,14 +104,16 @@ tracker.load_scores_from_csv('daily_scores.csv')
 tracker.load_tasks_from_csv('tasks.csv')
 
 while True:
-    print("1. Enter 1 to Add Tasks")
-    print("2. Enter 2 to Mark Tasks done")
-    print("3. Enter 3 to Save the daily tasks and update")
-    print("4. Enter 4 to Show today's scores")
-    print("5. Enter 5 to Show today's tasks")
-    print("6. Enter 6 to Show weekly scores")
-    print("7. Enter 7 to End usage of the App Tracker")                 
-    action= input("What do you want to do?")
+    print("This is your personal daily tracker with points!")
+    print("Choose any action from the list below:")
+    print("Enter 1 to Add Tasks")
+    print("Enter 2 to Mark Tasks done")
+    print("Enter 3 to Save the daily tasks and update")
+    print("Enter 4 to Show today's scores")
+    print("Enter 5 to Show today's tasks")
+    print("Enter 6 to Show weekly scores")
+    print("Enter 7 to End usage of the App Tracker")                 
+    action= input("What do you want to do? ")
 
     if action == "1":
         task_name = input("Enter task name: ")
@@ -126,7 +128,7 @@ while True:
             tracker.mark_task_done(task_index)
         else:
             print("Invalid task number.")
-            add_new = input("Do you want to add this task to the list? (yes/no): ")
+            add_new = input("Do you want to add a new task to the list? (yes/no): ")
             if add_new.lower() == "yes":
                 task_name = input("Enter task name: ")
                 task_points = int(input("Enter task points: "))

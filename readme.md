@@ -1,14 +1,14 @@
 # Jan Consul - T1A3
 
 ### Presentation link
-placeholder
+https://youtu.be/7bYDt67od8E
 
 
 ### R3 - External resources used
-I'd like to thank ChatGPT for providing information on how to incorporate a datetime into my work. Apparently you can just "import datetime" to include the date and time of your pc.
+2 external resources that I've used is my brother who is a vet as well at the field and ChatGPT for some information. (datetime function and weekly tally function)
 
 ### R4 Provide a linik to your source control repository
-To be added here
+https://github.com/zMyrddin/JanConsul_T1A3
 
 ### R5 Code Style Guide / Styling Conventions used
 1. Indentation - The terminal app follows the standard indentation
