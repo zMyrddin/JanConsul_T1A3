@@ -94,3 +94,8 @@ class Task:
 
         for date, earned_points, total_points in weekly_scores:
             print(f"{date}: {earned_points}/{total_points}")
+
+tracker = DailyTracker()
+tracker.load_scores_from_csv('daily_scores.csv')
+tracker.load_tasks_from_csv('tasks.csv')
+
