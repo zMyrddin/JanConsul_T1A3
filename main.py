@@ -10,7 +10,7 @@ class Task:
     def mark_done(self):
         self.done = True
 
- class DailyTracker:
+class DailyTracker:
     def __init__(self):
         self.tasks = []
         self.daily_scores = []
@@ -98,4 +98,58 @@ class Task:
 tracker = DailyTracker()
 tracker.load_scores_from_csv('daily_scores.csv')
 tracker.load_tasks_from_csv('tasks.csv')
+
+while True:
+    print("1. Enter 1 to Add Tasks")
+    print("2. Enter 2 to Mark Tasks done")
+    print("3. Enter 3 to Save the daily tasks and update")
+    print("4. Enter 4 to Show today's scores")
+    print("5. Enter 5 to Show today's tasks")
+    print("6. Enter 6 to Show weekly scores")
+    print("7. Enter 7 to End usage of the App Tracker")                 
+    action= input("What do you want to do?")
+
+    if action == "1":
+        task_name = input("Enter task name: ")
+        task_points = int(input("Enter task points: "))
+        tracker.add_task(task_name, task_points)
+        print("Would you like to do anything else?")        
+
+    elif action == "2":
+        tracker.display_tasks()
+        task_index = int(input("Enter the task number you want to mark as done: ")) - 1
+        if task_index < len(tracker.tasks):
+            tracker.mark_task_done(task_index)
+        else:
+            print("Invalid task number.")
+            add_new = input("Do you want to add this task to the list? (yes/no): ")
+            if add_new.lower() == "yes":
+                task_name = input("Enter task name: ")
+                task_points = int(input("Enter task points: "))
+                tracker.add_task(task_name, task_points)
+                tracker.mark_task_done(task_index)
+        print("Would you like to do anything else?")                
+
+    elif action == "3":
+        tracker.save_day()
+        print("Would you like to do anything else?")        
+
+    elif action == "4":
+        tracker.display_scores()
+        print("Would you like to do anything else?")   
+
+    elif action == "5":
+        tracker.display_tasks()
+        print("Would you like to do anything else?")
+
+    elif action == "6":
+        tracker.display_weekly_scores()
+        print("Would you like to do anything else?")
+
+    elif action == "7":
+        print("Thank you for using the Gamified To-do Tracker")
+        break
+
+    else:
+        print("Invalid action, please try again.")
 
