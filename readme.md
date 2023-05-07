@@ -3,6 +3,10 @@
 ### Presentation link
 placeholder
 
+
+### R3 - External resources used
+I'd like to thank ChatGPT for providing information on how to incorporate a datetime into my work. Apparently you can just "import datetime" to include the date and time of your pc.
+
 ### R4 Provide a linik to your source control repository
 To be added here
 
@@ -97,3 +101,36 @@ Using the Gamified Daily Tracker:
         quit: Save the tasks and scores, then exit the application.
 
 For example, to add a task, type add task, and the application will ask you to enter the task name and points. After entering the information, the task will be added to your list.
+
+
+### R14 - Testing
+
+Test 1: Testing the 'add task' feature
+
+What is being tested: The ability of the user to add a task with a point value to the daily tracker
+
+Test case 1:
+
+    Input: Add task 'Do pushups' with 5 points
+    Expected result: Task 'Do pushups' with 5 points is added to the daily tracker
+
+Test case 2:
+
+    Input: Add task 'Feed the dog' with 3 points
+    Expected result: Task 'Feed the dog' with 3 points is added to the daily tracker
+
+Test 2: Testing the 'save day' feature
+
+What is being tested: The ability of the user to save the daily tasks and display their daily score
+
+Test case 1:
+
+    Input: Mark all added tasks as done and save the day
+    Expected result: The application displays the user's daily score out of the total possible points for the day
+
+Test case 2:
+
+    Input: Mark some tasks as done and leave some tasks incomplete, then save the day
+    Expected result: The application displays the user's daily score out of the total possible points for the day, taking into account the incomplete tasks
+
+
