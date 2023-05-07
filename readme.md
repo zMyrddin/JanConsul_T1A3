@@ -26,7 +26,7 @@ To be added here
 ### R7 - Implementation Plan
 
 I've used trello to manage the project. 
-![Trello board screenshot](./Images/Trello%20Screenshots/Screenshot.PNG)
+![Trello board screenshot](./docs/Trello%20Screenshots/Screenshot.PNG)
 
 Here's the outline of the implementation plan:
 
@@ -36,32 +36,32 @@ Here's the outline of the implementation plan:
         Implement displaying tasks
         Implement marking tasks as done
         Test task management feature
-![Task Management](./Images/Trello%20Screenshots/Task%20Management%20screenshot.PNG)
+![Task Management](./docs/Trello%20Screenshots/Task%20Management%20screenshot.PNG)
 
 
     Daily scores
         Implement calculating daily score
         Implement displaying daily score
         Test daily scores feature
-![Daily Scores](./Images/Trello%20Screenshots/Daily%20Scores.PNG)
+![Daily Scores](./docs/Trello%20Screenshots/Daily%20Scores.PNG)
 
     Weekly scores
         Implement calculating weekly scores
         Implement displaying weekly scores
         Test weekly scores feature
-![Weekly Scores](./Images/Trello%20Screenshots/Weekly%20scores.PNG)
+![Weekly Scores](./docs/Trello%20Screenshots/Weekly%20scores.PNG)
 
     File Handling
         Implement CSV file handling for tasks
         Implement CSV file handling for daily scores
         Test data across app runs
-![File Handling](./Images/Trello%20Screenshots/file%20handling.PNG)
+![File Handling](./docs/Trello%20Screenshots/file%20handling.PNG)
 
     REPL structure and user interface
         Design and implement the main loop
         Implement user input processing
         Test overall user experience
-![Structure](./Images/Trello%20Screenshots/Structure%20screenshot.PNG)
+![Structure](./docs/Trello%20Screenshots/Structure%20screenshot.PNG)
 
 
 ### R8 - Help Documentation
@@ -103,7 +103,7 @@ Using the Gamified Daily Tracker:
 For example, to add a task, type add task, and the application will ask you to enter the task name and points. After entering the information, the task will be added to your list.
 
 
-### R14 - Testing
+### R15 - Testing
 
 Test 1: Testing the 'add task' feature
 

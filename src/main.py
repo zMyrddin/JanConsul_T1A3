@@ -1,14 +1,7 @@
+from task import Task
 import csv
 import datetime
 
-class Task:
-    def __init__(self, name, points):
-        self.name = name
-        self.points = points
-        self.done = False
-
-    def mark_done(self):
-        self.done = True
 
 class DailyTracker:
     def __init__(self):
@@ -158,7 +151,7 @@ while True:
         print("Would you like to do anything else?")
 
     elif action == "7":
-        print("Thank you for using the Gamified To-do Tracker")
+        print("Thank you for using the Gamified To-do Tracker!")
         break
 
     else:
