@@ -95,16 +95,16 @@ class DailyTracker:
 
         weekly_scores = [score for score in self.daily_scores if start_of_week <= score[0] < start_of_week + datetime.timedelta(days=7)]
 
-        # Filter out duplicate entries for the latest day
-        latest_day = None
+        seen_dates = set()
         weekly_scores_filtered = []
         for score in reversed(weekly_scores):
-            if latest_day is None or latest_day != score[0]:
-                latest_day = score[0]
+            if score[0] not in seen_dates:
+                seen_dates.add(score[0])
                 weekly_scores_filtered.append(score)
 
         for date, earned_points, total_points in reversed(weekly_scores_filtered):
             print(f"{date}: {earned_points}/{total_points}")
+
 
 tracker = DailyTracker()
 tracker.load_scores_from_csv('daily_scores.csv')
@@ -164,4 +164,3 @@ while True:
     else:
         print("Invalid action, please try again.")
 
-        
