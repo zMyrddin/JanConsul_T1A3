@@ -77,3 +77,20 @@ class Task:
             writer = csv.writer(csvfile)
             for task in self.tasks:
                 writer.writerow([datetime.date.today(), task.name, task.points, task.done])
+
+    def display_tasks(self):
+        if not self.tasks:
+            print("There are no tasks yet!")
+        else:
+            for index, task in enumerate(self.tasks):
+                status = "Done" if task.done else "Not done"
+                print(f"{index + 1}. {task.name} ({task.points} points) - {status}")
+
+    def display_weekly_scores(self):
+        today = datetime.date.today()
+        start_of_week = today - datetime.timedelta(days=today.weekday() % 7)
+
+        weekly_scores = [score for score in self.daily_scores if start_of_week <= score[0] < start_of_week + datetime.timedelta(days=7)]
+
+        for date, earned_points, total_points in weekly_scores:
+            print(f"{date}: {earned_points}/{total_points}")
